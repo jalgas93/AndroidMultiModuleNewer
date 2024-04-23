@@ -1,7 +1,10 @@
 package uz.octo.feature_movies.data.extensions
 
-import ResultModel
-import uz.octo.feature_movies.domain.model.Result
+import uz.octo.feature_movies.data.model.PeoplePopular.KnownFor
+import uz.octo.feature_movies.data.model.PeoplePopular.ResultPeople
+import uz.octo.feature_movies.data.model.PopularMovie.ResultModel
+import uz.octo.feature_movies.domain.model.PopularMovie.Result
+import uz.octo.feature_movies.domain.model.PopularPeople.People
 
 
 fun ResultModel.toMovie(): Result {
@@ -20,5 +23,18 @@ fun ResultModel.toMovie(): Result {
         video,
         vote_average,
         vote_count
+    )
+}
+
+fun ResultPeople.toPeople(): People {
+    return People(
+        adult,
+        gender, id,
+        known_for,
+        known_for_department,
+        name,
+        original_name,
+        popularity,
+        profile_path
     )
 }

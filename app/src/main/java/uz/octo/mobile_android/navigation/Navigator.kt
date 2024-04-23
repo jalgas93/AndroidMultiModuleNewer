@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.navigation.NavController
 import dagger.hilt.android.scopes.ActivityScoped
-import uz.octo.feature_movies.domain.model.Result
 import uz.octo.feature_movies.domain.navigation.NavigationList
 import uz.octo.mobile_android.R
 import javax.inject.Inject

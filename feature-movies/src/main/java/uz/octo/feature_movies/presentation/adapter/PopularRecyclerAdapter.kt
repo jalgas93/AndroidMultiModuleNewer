@@ -7,12 +7,12 @@ import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import uz.octo.core_network.Constants
-import uz.octo.feature_movies.domain.model.Result
+import uz.octo.feature_movies.domain.model.PopularMovie.Result
 import uz.octo.feature_movies.databinding.PopularRowBinding
 
 class PopularRecyclerAdapter(
     val moviesList: List<Result>, private val context: Context?,
-  ) :
+) :
     RecyclerView.Adapter<PopularRecyclerAdapter.PopularViewHolder>() {
 
     var onItemClick: ((Result) -> Unit)? = null
@@ -30,10 +30,7 @@ class PopularRecyclerAdapter(
 
     override fun onBindViewHolder(holder: PopularViewHolder, position: Int) {
         var requestOptions = RequestOptions()
-        requestOptions = requestOptions.transforms(
-            FitCenter(), RoundedCorners(16)
-        )
-
+        requestOptions = requestOptions.transforms(FitCenter(), RoundedCorners(16))
         if (context != null) {
             Glide.with(context)
                 .load("${Constants.URL_IMAGE_ORIGINAL}${moviesList[position].backdrop_path}")

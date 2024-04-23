@@ -54,7 +54,7 @@ class HomeFragment : Fragment() {
                     binding.recyclerView.adapter = adapter
                     adapter.onItemClick = {
                         Log.i("Click", "Click")
-                         navigation?.openMovie(12)
+                         navigation.openMovie(it.id)
 
                     }
                 }

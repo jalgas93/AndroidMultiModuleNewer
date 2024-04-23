@@ -1,4 +1,4 @@
-package uz.octo.feature_movies.domain.model
+package uz.octo.feature_movies.domain.model.PopularMovie
 
 data class Result(
     val adult: Boolean,
