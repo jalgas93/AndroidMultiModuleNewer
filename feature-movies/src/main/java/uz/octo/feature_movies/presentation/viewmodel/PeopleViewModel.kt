@@ -31,7 +31,7 @@ class PeopleViewModel @Inject constructor(
         getPeopleUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = PeopleListState(movies = result.data ?: emptyList())
+                    _state.value = PeopleListState(people = result.data ?: emptyList())
                 }
 
                 is Resource.Error -> {

@@ -6,6 +6,9 @@ import retrofit2.http.Headers
 import retrofit2.http.Query
 import uz.octo.core_network.Constants.API_KEY
 import uz.octo.feature_movies.data.model.PeoplePopular.PeoplePopular
+import uz.octo.feature_movies.data.model.genres.GenreModel
+import uz.octo.feature_movies.data.model.genres.GenresModel
+import uz.octo.feature_movies.domain.model.genres.Genres
 
 
 interface ApiClient {
@@ -24,10 +27,19 @@ interface ApiClient {
         "accept: application/json",
         "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTczZDVhYzEwNzk5YWFiNGQ0MjVhMjgzNDZkYjc4ZSIsInN1YiI6IjYxNjQ0NTA4NTA3MzNjMDA2NDgzZjIyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.He2bIuySkIllZAmewGYfqypxUNdzMb_Vt6DIlzcfCAc",
     )
-    @GET("3/movie/{movie_id}")
+    @GET("3/person/popular")
     suspend fun getPopularPeople(
         @Query("page") page:Int = 1,
         @Query("language") language: String ="ru-RU",
         @Query("api_key") apiKey:String = API_KEY
     ): PeoplePopular
+    @Headers(
+        "accept: application/json",
+        "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTczZDVhYzEwNzk5YWFiNGQ0MjVhMjgzNDZkYjc4ZSIsInN1YiI6IjYxNjQ0NTA4NTA3MzNjMDA2NDgzZjIyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.He2bIuySkIllZAmewGYfqypxUNdzMb_Vt6DIlzcfCAc",
+    )
+    @GET("3/genre/movie/list")
+    suspend fun getGenres(
+        @Query("language") language: String ="ru-RU",
+        @Query("api_key") apiKey:String = API_KEY
+    ): GenresModel
 }

@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import uz.octo.core_network.Constants
 import uz.octo.feature_movies.domain.model.PopularMovie.Result
-import uz.octo.feature_movies.databinding.PopularRowBinding
+import uz.octo.feature_movies.databinding.BodyRowBinding
 
 class PopularRecyclerAdapter(
     val moviesList: List<Result>, private val context: Context?,
@@ -17,13 +17,13 @@ class PopularRecyclerAdapter(
 
     var onItemClick: ((Result) -> Unit)? = null
 
-    class PopularViewHolder(val binding: PopularRowBinding) : RecyclerView.ViewHolder(binding.root)
+    class PopularViewHolder(val binding: BodyRowBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
     ): PopularViewHolder {
-        val binding = PopularRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = BodyRowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PopularViewHolder(binding)
 
     }

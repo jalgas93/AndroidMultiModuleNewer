@@ -33,7 +33,7 @@ class SupportAdapter(private val supportList: List<SupportItem>) :
         holder.titleTv.text = partentItem.title
 
         holder.childRecyclerView.setHasFixedSize(true)
-        holder.childRecyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 3)
+        holder.childRecyclerView.layoutManager = GridLayoutManager(holder.itemView.context, 2)
         val adapter = ChildAdapter(partentItem.mList)
         holder.childRecyclerView.adapter = adapter
 

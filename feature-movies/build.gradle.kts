@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -61,4 +62,6 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("io.coil-kt:coil:0.9.1")
+
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 }
