@@ -1,8 +1,8 @@
-package uz.octo.feature_movies.domain.model.PopularPeople
+package uz.octo.feature_movies.domain.model.People
 
-import uz.octo.feature_movies.data.model.PeoplePopular.KnownFor
+import uz.octo.feature_movies.data.model.People.KnownFor
 
-data class People(
+data class DomainPeopleItem(
     val adult: Boolean,
     val gender: Int,
     val id: Int,

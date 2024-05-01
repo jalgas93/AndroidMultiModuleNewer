@@ -1,4 +1,4 @@
-package uz.octo.feature_movies.data.model.PeoplePopular
+package uz.octo.feature_movies.data.model.People
 
 data class KnownFor(
     val adult: Boolean,

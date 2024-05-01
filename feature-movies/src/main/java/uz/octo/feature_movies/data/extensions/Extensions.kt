@@ -1,17 +1,16 @@
 package uz.octo.feature_movies.data.extensions
 
-import uz.octo.feature_movies.data.model.PeoplePopular.KnownFor
-import uz.octo.feature_movies.data.model.PeoplePopular.ResultPeople
-import uz.octo.feature_movies.data.model.PopularMovie.ResultModel
-import uz.octo.feature_movies.data.model.genres.GenreModel
-import uz.octo.feature_movies.data.model.genres.GenresModel
-import uz.octo.feature_movies.domain.model.PopularMovie.Result
-import uz.octo.feature_movies.domain.model.PopularPeople.People
-import uz.octo.feature_movies.domain.model.genres.Genre
+import uz.octo.feature_movies.data.model.People.PeopleItem
+import uz.octo.feature_movies.data.model.Popular.PopularItem
+import uz.octo.feature_movies.data.model.category.CategoryItem
+import uz.octo.feature_movies.domain.model.Popular.DomainPopularItem
+import uz.octo.feature_movies.domain.model.People.DomainPeopleItem
+import uz.octo.feature_movies.domain.model.category.DominCategoryItem
+import uz.octo.feature_movies.domain.model.genre.DomainGenreItem
 
 
-fun ResultModel.toMovie(): Result {
-    return Result(
+fun PopularItem.toPopular(): DomainPopularItem {
+    return DomainPopularItem(
         adult,
         backdrop_path,
         genre_ids,
@@ -29,8 +28,8 @@ fun ResultModel.toMovie(): Result {
     )
 }
 
-fun ResultPeople.toPeople(): People {
-    return People(
+fun PeopleItem.toPeople(): DomainPeopleItem {
+    return DomainPeopleItem(
         adult,
         gender, id,
         known_for,
@@ -42,9 +41,27 @@ fun ResultPeople.toPeople(): People {
     )
 }
 
-fun GenreModel.toGenre(): Genre {
-    return Genre(
+fun uz.octo.feature_movies.data.model.genres.Genre.toGenre(): DomainGenreItem {
+    return DomainGenreItem(
         id,
         name,
+    )
+}
+fun CategoryItem.toCategory(): DominCategoryItem {
+    return DominCategoryItem(
+        adult,
+        backdrop_path,
+        genre_ids,
+        id,
+        original_language,
+        original_title,
+        overview,
+        popularity,
+        poster_path,
+        release_date,
+        title,
+        video,
+        vote_average,
+        vote_count
     )
 }

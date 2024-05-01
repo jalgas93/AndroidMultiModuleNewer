@@ -1,14 +1,13 @@
 package uz.octo.feature_movies.data.network
 
-import uz.octo.feature_movies.data.model.PopularMovie.PopularMovie
+import uz.octo.feature_movies.data.model.Popular.Popular
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 import uz.octo.core_network.Constants.API_KEY
-import uz.octo.feature_movies.data.model.PeoplePopular.PeoplePopular
-import uz.octo.feature_movies.data.model.genres.GenreModel
-import uz.octo.feature_movies.data.model.genres.GenresModel
-import uz.octo.feature_movies.domain.model.genres.Genres
+import uz.octo.feature_movies.data.model.People.People
+import uz.octo.feature_movies.data.model.category.Category
+import uz.octo.feature_movies.data.model.genres.GenreItem
 
 
 interface ApiClient {
@@ -21,7 +20,7 @@ interface ApiClient {
         @Query("page") page:Int = 1,
         @Query("language") language: String ="ru-RU",
         @Query("api_key") apiKey:String = API_KEY
-    ): PopularMovie
+    ): Popular
 
     @Headers(
         "accept: application/json",
@@ -32,7 +31,7 @@ interface ApiClient {
         @Query("page") page:Int = 1,
         @Query("language") language: String ="ru-RU",
         @Query("api_key") apiKey:String = API_KEY
-    ): PeoplePopular
+    ): People
     @Headers(
         "accept: application/json",
         "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTczZDVhYzEwNzk5YWFiNGQ0MjVhMjgzNDZkYjc4ZSIsInN1YiI6IjYxNjQ0NTA4NTA3MzNjMDA2NDgzZjIyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.He2bIuySkIllZAmewGYfqypxUNdzMb_Vt6DIlzcfCAc",
@@ -41,5 +40,16 @@ interface ApiClient {
     suspend fun getGenres(
         @Query("language") language: String ="ru-RU",
         @Query("api_key") apiKey:String = API_KEY
-    ): GenresModel
+    ): GenreItem
+    @Headers(
+        "accept: application/json",
+        "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTczZDVhYzEwNzk5YWFiNGQ0MjVhMjgzNDZkYjc4ZSIsInN1YiI6IjYxNjQ0NTA4NTA3MzNjMDA2NDgzZjIyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.He2bIuySkIllZAmewGYfqypxUNdzMb_Vt6DIlzcfCAc",
+    )
+    @GET("3/discover/movie")
+    suspend fun getByCategory(
+        @Query("with_genres") withGenres:Int = 16,
+        @Query("page") page:Int = 1,
+        @Query("language") language: String ="ru-RU",
+        @Query("api_key") apiKey:String = API_KEY
+    ): Category
 }

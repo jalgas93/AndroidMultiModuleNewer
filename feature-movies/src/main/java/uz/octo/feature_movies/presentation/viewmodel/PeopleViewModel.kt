@@ -9,9 +9,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.octo.core_network.Resource
 import uz.octo.feature_movies.domain.GetPopularUseCase.GetPeoplePopularUseCase
-import uz.octo.feature_movies.domain.GetPopularUseCase.GetPopularUseCase
 import uz.octo.feature_movies.presentation.state.PeopleListState
-import uz.octo.feature_movies.presentation.state.PopularListState
 import javax.inject.Inject
 
 @HiltViewModel

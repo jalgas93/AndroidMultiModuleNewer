@@ -8,13 +8,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.octo.core_network.Resource
-import uz.octo.feature_movies.domain.GetPopularUseCase.GetGenres
+import uz.octo.feature_movies.domain.GetPopularUseCase.GenreUseCase
 import uz.octo.feature_movies.presentation.state.GenresListState
 import javax.inject.Inject
 
 @HiltViewModel
 class GenresViewModel @Inject constructor(
-    private val getGenresUseCase: GetGenres
+    private val genreUseCaseUseCase: GenreUseCase
 ) : ViewModel() {
     private val _state = MutableLiveData<GenresListState>()
     val state: LiveData<GenresListState> = _state
@@ -24,10 +24,10 @@ class GenresViewModel @Inject constructor(
     }
 
     private fun getGenres() {
-        getGenresUseCase().onEach { result ->
+        genreUseCaseUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = GenresListState(genres = result.data ?: emptyList())
+                    _state.value = GenresListState(domainGenreItems = result.data ?: emptyList())
                 }
 
                 is Resource.Loading -> {

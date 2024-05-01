@@ -8,22 +8,22 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.octo.core_network.Resource
-import uz.octo.feature_movies.domain.GetPopularUseCase.PopularUseCase
+import uz.octo.feature_movies.domain.GetPopularUseCase.CategoryUseCase
+import uz.octo.feature_movies.domain.model.category.DominCategoryItem
 import uz.octo.feature_movies.presentation.state.PopularListState
 import javax.inject.Inject
 
 @HiltViewModel
-class PopularViewModel @Inject constructor(
-    private val popularUseCase: PopularUseCase
-) :ViewModel() {
-/*    private val _state = MutableLiveData<PopularListState>()
-    val state: LiveData<PopularListState> = _state
+class CategoryViewModel @Inject constructor(
+    private val categoryUseCase: CategoryUseCase
+) : ViewModel() {
+    private val _state = MutableLiveData<PopularListState<DominCategoryItem>>()
+    val state: LiveData<PopularListState<DominCategoryItem>> = _state
     init {
-        getMovies()
+        getCategory(movieId = 28)
     }
-
-    private fun getMovies() {
-        popularUseCase().onEach { result ->
+     fun getCategory(movieId:Int) {
+        categoryUseCase(movieId =movieId ).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = PopularListState(movies = result.data ?: emptyList())
@@ -40,5 +40,5 @@ class PopularViewModel @Inject constructor(
                 else -> {}
             }
         }.launchIn(viewModelScope)
-    }*/
+    }
 }

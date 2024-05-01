@@ -1,6 +1,6 @@
-package uz.octo.feature_movies.data.model.PeoplePopular
+package uz.octo.feature_movies.data.model.People
 
-data class ResultPeople(
+data class PeopleItem(
     val adult: Boolean,
     val gender: Int,
     val id: Int,

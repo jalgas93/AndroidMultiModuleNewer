@@ -7,15 +7,16 @@ import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import uz.octo.core_network.Constants
-import uz.octo.feature_movies.domain.model.PopularMovie.Result
+import uz.octo.feature_movies.domain.model.Popular.DomainPopularItem
 import uz.octo.feature_movies.databinding.BodyRowBinding
+import uz.octo.feature_movies.domain.model.category.DominCategoryItem
 
 class PopularRecyclerAdapter(
-    val moviesList: List<Result>, private val context: Context?,
+    val moviesList: List<DominCategoryItem>, private val context: Context?,
 ) :
     RecyclerView.Adapter<PopularRecyclerAdapter.PopularViewHolder>() {
 
-    var onItemClick: ((Result) -> Unit)? = null
+    var onItemClick: ((DominCategoryItem) -> Unit)? = null
 
     class PopularViewHolder(val binding: BodyRowBinding) : RecyclerView.ViewHolder(binding.root)
 

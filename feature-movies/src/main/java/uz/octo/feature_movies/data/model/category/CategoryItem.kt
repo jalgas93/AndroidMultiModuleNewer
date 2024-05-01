@@ -1,7 +1,8 @@
-package uz.octo.feature_movies.data.model.PopularMovie
-data class ResultModel(
+package uz.octo.feature_movies.data.model.category
+
+data class CategoryItem(
     val adult: Boolean,
-    val backdrop_path: String,
+    val backdrop_path: String?,
     val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
