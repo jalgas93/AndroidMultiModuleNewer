@@ -1,6 +1,7 @@
 package uz.octo.feature_movies.data.repository
 
 import uz.octo.feature_movies.data.extensions.toCategory
+import uz.octo.feature_movies.data.extensions.toDetails
 import uz.octo.feature_movies.data.extensions.toGenre
 import uz.octo.feature_movies.data.extensions.toPopular
 import uz.octo.feature_movies.data.extensions.toPeople
@@ -9,6 +10,7 @@ import uz.octo.feature_movies.data.network.ApiClient
 import uz.octo.feature_movies.domain.model.Popular.DomainPopularItem
 import uz.octo.feature_movies.domain.model.People.DomainPeopleItem
 import uz.octo.feature_movies.domain.model.category.DominCategoryItem
+import uz.octo.feature_movies.domain.model.details.DomainDetails
 import uz.octo.feature_movies.domain.model.genre.DomainGenreItem
 import uz.octo.feature_movies.domain.repository.DomainRepository
 import javax.inject.Inject
@@ -38,6 +40,12 @@ class DataRepositoryImpl @Inject constructor(
        return  apiClient.getByCategory(movieId).results.map {
            it.toCategory()
        }
+    }
+
+    override suspend fun getDetails(movieId: Int): DomainDetails {
+        return  apiClient.getDetails(movieId).let {
+            it.toDetails()
+        }
     }
 
 }

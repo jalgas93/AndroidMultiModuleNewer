@@ -4,8 +4,22 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/green</item>
         <item name="android:statusBarColor">@color/orange</item>
+    </style>
+    <style name="Rubik">
+        <item name="android:fontFamily">@font/rubik</item>
+    </style>
 
-
+    <style name="Rubik.Title">
+        <item name="android:fontFamily">@font/rubik_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Rubik.Title.Dark">
+        <item name="android:shadowColor">@color/dark_grey</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">2</item>
     </style>
 
 
