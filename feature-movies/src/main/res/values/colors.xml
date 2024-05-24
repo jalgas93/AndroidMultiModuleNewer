@@ -10,4 +10,7 @@
     <color name="dark_grey">#161616</color>
     <color name="grey">#434343</color>
     <color name="light_grey">#d7d7d7</color>
+    <color name="main_background">#19191b</color>
+    <color name="pink">#e45eb0</color>
+    <color name="green2">#34e3c4</color>
 </resources>
