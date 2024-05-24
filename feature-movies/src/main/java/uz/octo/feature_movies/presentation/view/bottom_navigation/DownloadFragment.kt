@@ -8,24 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import uz.octo.feature_movies.databinding.FragmentDownloadBinding
 import uz.octo.feature_movies.databinding.FragmentSupportBinding
 import uz.octo.feature_movies.presentation.viewmodel.CategoryViewModel
 
 class DownloadFragment : Fragment() {
-private  lateinit var binding:FragmentSupportBinding
+private  lateinit var binding:FragmentDownloadBinding
     private lateinit var viewModel: CategoryViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSupportBinding.inflate(inflater, container, false)
+        binding = FragmentDownloadBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity()).get(CategoryViewModel::class.java)
+  /*      viewModel = ViewModelProvider(requireActivity()).get(CategoryViewModel::class.java)
 
         viewModel.state.observe(viewLifecycleOwner, Observer{
             if(!it.isLoading){
@@ -37,6 +38,6 @@ private  lateinit var binding:FragmentSupportBinding
                     Log.i("success",it.movies.toString())
                 }
             }
-        })
+        })*/
     }
 }
